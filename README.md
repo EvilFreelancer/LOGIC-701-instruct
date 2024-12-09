@@ -1,2 +1,3 @@
-# LOGIC-701
-Synthetic benchmark for assessing LLMs' logical reasoning abilities in different languages
+# LOGIC-701 (instruct)
+
+Synthetic benchmark for assessing LLMs' logical reasoning abilities in different languages, optimized for compatibility with instruct datasets.
