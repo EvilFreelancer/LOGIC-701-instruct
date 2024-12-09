@@ -31,7 +31,7 @@ def convert_sample_to_instruction(example: dict):
 if __name__ == "__main__":
     dataset = load_dataset("hivaze/LOGIC-701", name="en", split="train")
     converted = [convert_sample_to_instruction(sample) for sample in dataset]
-    with open("converted_ru_train.jsonl", "w", encoding="utf-8") as f:
+    with open("converted_en_train.jsonl", "w", encoding="utf-8") as f:
         for item in converted:
             f.write(json.dumps(item, ensure_ascii=False) + "\n")
 

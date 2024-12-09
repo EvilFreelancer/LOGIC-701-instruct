@@ -2,7 +2,7 @@ import pandas as pd
 from io import StringIO
 from datasets import Dataset, DatasetDict
 
-repo_path = "evilfreelancer/logic-701-instruct"
+repo_path = "evilfreelancer/LOGIC-701-instruct"
 
 LANGUAGE_CONFIG = {
     "en": {
@@ -31,14 +31,9 @@ def push_dataset_to_hub(jsonl_file, repo_path: str, config_name: str, language_c
     dataset_dict.push_to_hub(repo_path, config_name=config_name)
 
 
-# Отправка англоязычных данных
-jsonl_file = open("converted_en_train.jsonl", "r")
-push_dataset_to_hub(jsonl_file=jsonl_file, repo_path=repo_path, config_name="en", language_config=LANGUAGE_CONFIG["en"])
+if __name__ == "__main__":
+    jsonl_file = open("converted_en_train.jsonl", "r")
+    push_dataset_to_hub(jsonl_file=jsonl_file, repo_path=repo_path, config_name="en", language_config=LANGUAGE_CONFIG["en"])
 
-# Отправка русскоязычных данных
-push_dataset_to_hub(
-    jsonl_path="ru_train_converted.jsonl",
-    repo_path=repo_path,
-    config_name="ru",
-    language_config=LANGUAGE_CONFIG["ru"],
-)
+    jsonl_file = open("converted_ru_train.jsonl", "r")
+    push_dataset_to_hub(jsonl_file=jsonl_file, repo_path=repo_path, config_name="ru", language_config=LANGUAGE_CONFIG["ru"])
